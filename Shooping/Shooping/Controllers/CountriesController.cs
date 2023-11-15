@@ -108,7 +108,7 @@ namespace Shooping.Controllers
             return View(country);
         }
 
-        // GET: Countries/Delete/5
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Countries == null)
@@ -117,7 +117,7 @@ namespace Shooping.Controllers
             }
 
             var country = await _context.Countries
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FindAsync(id);
             if (country == null)
             {
                 return NotFound();
@@ -126,7 +126,6 @@ namespace Shooping.Controllers
             return View(country);
         }
 
-        // POST: Countries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
