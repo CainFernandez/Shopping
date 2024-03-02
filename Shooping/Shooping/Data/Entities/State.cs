@@ -10,5 +10,11 @@ namespace Shooping.Data.Entities
         [MaxLength(50, ErrorMessage = "El campo {0} debe tener máximo {1} caractéres.")]
         [Required(ErrorMessage = "El campo {0} es obligatorio.")]
         public string Name { get; set; }
+
+        // Relación: Un estado pertenece a un país.
+        public Country Country { get; set; }
+
+        // Relación: Un estado tiene muchas Ciudades.
+        public ICollection<City> Cities { get; set; }
     }
 }
