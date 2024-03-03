@@ -219,7 +219,7 @@ namespace Shooping.Controllers
                         Name = model.Name,
                     };
 
-                    _context.Add(model);
+                    _context.Add(state);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Details), new { Id = model.CountryId});
                 }
