@@ -54,7 +54,7 @@ namespace Shooping.Controllers
                 }
             }
             return View(category);
-    }
+        }
 
         // GET:
         public async Task<IActionResult> Edit(int? id)
