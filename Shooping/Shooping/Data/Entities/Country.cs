@@ -14,5 +14,9 @@ namespace Shooping.Data.Entities
         // Relación: Un país tiene muchos estados.
         public ICollection<State> States {  get; set; }
 
+        // Propiedad Lectura:
+        [Display(Name = "Departamento/Estados")]
+        public int StatesNumber => States == null ? 0 : States.Count;
+
     }
 }
