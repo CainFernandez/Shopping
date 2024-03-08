@@ -16,5 +16,9 @@ namespace Shooping.Data.Entities
 
         // Relación: Un estado tiene muchas Ciudades.
         public ICollection<City> Cities { get; set; }
+
+        // Propiedad Lectura:
+        [Display(Name = "Ciudades")]
+        public int CitiesNumber => Cities == null ? 0 : Cities.Count;
     }
 }
