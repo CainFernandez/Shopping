@@ -332,6 +332,38 @@ namespace Shooping.Controllers
             return View(state);
         }
 
+        // GET: Countries/Delete/5
+        public async Task<IActionResult> DeleteState(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            State state = await _context.States
+                .Include(s => s.Country)
+                .FirstOrDefaultAsync(s => s.Id == id);
+            if (state == null)
+            {
+                return NotFound();
+            }
+
+            return View(state);
+        }
+
+        // POST: Countries/Delete/5
+        [HttpPost, ActionName("DeleteState")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteStateConfirmed(int id)
+        {
+            State state = await _context.States
+                .Include(s => s.Country)
+                .FirstOrDefaultAsync (s => s.Id == id);
+            _context.States.Remove(state);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Details), new { Id = state.Country.Id});
+        }
+
         //============================ CONTROLADOR CIUDAD ==============================//
         public async Task<IActionResult> AddCity(int? id)
         {
