@@ -491,5 +491,24 @@ namespace Shooping.Controllers
             return View(model);
         }
 
+        // GET: DetailsState
+        public async Task<IActionResult> DetailsCity(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            City city = await _context.Cities
+                .Include(c => c.State)
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            if (city == null)
+            {
+                return NotFound();
+            }
+
+            return View(city);
+        }
     }
 }
