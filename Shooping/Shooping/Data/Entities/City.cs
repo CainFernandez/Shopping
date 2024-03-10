@@ -13,5 +13,8 @@ namespace Shooping.Data.Entities
 
         // Relación: Una ciudad pertenece a un estado.
         public State State { get; set; }
+
+        // Relación: Una ciudad tiene muchos usuarios que pertenece a la ciudad.
+        public ICollection<User> Users { get; set; }
     }
 }
