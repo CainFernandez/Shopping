@@ -28,5 +28,12 @@ namespace Shooping.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //============= PÀGINA NO ENCONTRADA =================//
+        [Route("error/404")]
+        public IActionResult Error404()
+        {
+            return View();
+        }
     }
 }
