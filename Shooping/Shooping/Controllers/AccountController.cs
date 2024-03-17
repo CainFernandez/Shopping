@@ -45,5 +45,11 @@ namespace Shooping.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        //============== PÀGINA NO AUTORIZADA ======================//
+        public IActionResult NotAuthorized()
+        {
+            return View();
+        }
+
     }
 }
